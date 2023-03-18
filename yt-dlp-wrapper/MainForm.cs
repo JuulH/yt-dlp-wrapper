@@ -69,12 +69,12 @@ namespace yt_dlp_wrapper
                 args += $"--download-sections \"*{txt_from.Text}-{txt_to.Text}\" ";
             }
 
-            args += $"-o {folderBrowserDialog.SelectedPath}/%(title)s.%(ext)s "; // Set output folder
+            args += $"-o \"{folderBrowserDialog.SelectedPath}/%(title)s.%(ext)s\" "; // Set output folder
 
             //args += "--progress-hook \"echo {\"progress\":%\"_percent_str%\"}\" "; // YT-DLP Progress hook for progress bar
 
-            args += $"{txt_url.Text}"; // Set video url
             args += $"--ffmpeg-location \"{ffmpeg_path}\" ";
+            args += $"{txt_url.Text}"; // Set video url
 
             txt_cmd.Text = $"{ytdlp_path} {args}";
 
